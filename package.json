@@ -3,7 +3,16 @@
   "version": "1.0.0",
   "description": "Tienda de vinilos con Stripe",
   "type": "module",
+  "scripts": {
+    "build": "echo 'No build required for this static + functions project'",
+    "dev": "netlify dev"
+  },
   "dependencies": {
-    "stripe": "^14.0.0"
+    "stripe": "^14.0.0",
+    "serverless-http": "^3.2.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
   }
 }
