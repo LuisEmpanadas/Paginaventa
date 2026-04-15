@@ -1,5 +1,5 @@
 [build]
-  publish   = "PAGINAVENTA"
+  publish   = "Paginaventa"
   functions = "netlify/functions"
 
 [functions]
