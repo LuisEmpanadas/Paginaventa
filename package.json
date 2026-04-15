@@ -1,18 +1,9 @@
 {
-  "name": "paginaventa",
+  "name": "surco-vinilos",
   "version": "1.0.0",
-  "main": "store.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "echo 'No build needed for static files'",
-    "dev": "netlify dev"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "description": "Tienda de vinilos con Stripe",
+  "type": "module",
   "dependencies": {
-    "express": "^5.2.1",
-    "serverless-http": "^4.0.0"
+    "stripe": "^14.0.0"
   }
 }

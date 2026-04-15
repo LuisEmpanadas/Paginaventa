@@ -1,0 +1,11 @@
+[build]
+  publish   = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://js.stripe.com https://m.stripe.network 'unsafe-inline'; frame-src https://js.stripe.com https://hooks.stripe.com https://m.stripe.network; connect-src 'self' https://api.stripe.com https://m.stripe.network https://q.stripe.com /.netlify/functions/; img-src 'self' https://*.stripe.com https://images.unsplash.com https://via.placeholder.com data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com data:"
