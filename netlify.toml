@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"
-  publish = "."          # todo en minúsculas
+  publish = "."
   functions = "netlify/functions"
 
 [[redirects]]
@@ -12,3 +12,8 @@
   from = "/create-checkout-session"
   to = "/.netlify/functions/server"
   status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "script-src 'self' https://js.stripe.com https://m.stripe.network 'unsafe-inline';"
