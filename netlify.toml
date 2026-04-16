@@ -1,9 +1,10 @@
 [build]
   command = "npm run build"
+[build]
+  command = "npm run build"
   publish = "."
-  functions = "netlify/functions"
 
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Content-Security-Policy = "default-src 'self' https://js.stripe.com https://m.stripe.network https://js.stripe.network; script-src 'self' 'unsafe-inline' https://js.stripe.com https://m.stripe.network https://js.stripe.network; frame-src https://js.stripe.com https://hooks.stripe.com; connect-src 'self' https://api.stripe.com https://m.stripe.network https://js.stripe.network; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:;"
+[[redirects]]
+  from = "/*"
+  to = "/store.html"
+  status = 200
