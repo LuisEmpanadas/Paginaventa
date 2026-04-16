@@ -1,11 +1,11 @@
 [build]
   command = "npm run build"
-  publish = "paginaventa"
+  publish = "Paginaventa"          # todo en minúsculas
   functions = "netlify/functions"
 
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/store.html"
   status = 200
 
 [[redirects]]
