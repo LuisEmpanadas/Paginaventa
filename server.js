@@ -26,24 +26,23 @@ app.get("/", (req, res) => {
 });
 
 // Ruta para crear la sesión de pago con Stripe
-app.post("/create-checkout-session", async (req, res) => {
+app.post("/create-payment-intent", async (req, res) => {
   try {
-    const session = await stripeClient.checkout.sessions.create({
-      payment_method_types: ["card"],
-      line_items: [
-        {
-          price: process.env.STRIPE_PRICE_ID,
-          quantity: 1,
-        },
-      ],
-      mode: "payment",
-      success_url: `${req.headers.origin}/success.html`,
-      cancel_url: `${req.headers.origin}/cancel.html`,
+    const amount = req.body.amount;
+
+    const paymentIntent = await stripeClient.paymentIntents.create({
+      amount,
+      currency: "mxn",
+      automatic_payment_methods: {
+        enabled: true,
+      },
     });
 
-    res.json({ url: session.url });
+    res.json({
+      clientSecret: paymentIntent.client_secret,
+    });
   } catch (error) {
-    console.error("Error en Stripe:", error);
+    console.error(error);
     res.status(500).json({ error: error.message });
   }
 });
