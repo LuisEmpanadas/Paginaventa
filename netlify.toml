@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"
-  publish = "Paginaventa"          # todo en minúsculas
+  publish = "."          # todo en minúsculas
   functions = "netlify/functions"
 
 [[redirects]]
