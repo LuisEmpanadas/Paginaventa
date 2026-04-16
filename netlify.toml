@@ -3,12 +3,14 @@
   publish = "."
 
 [[redirects]]
+  from = "/.netlify/functions/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+[[redirects]]
   from = "/*"
   to = "/store.html"
   status = 200
 
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Content-Security-Policy = "default-src * 'unsafe-inline' 'unsafe-eval' data: blob:;"
-    
+[functions]
+  node_bundler = "esbuild"

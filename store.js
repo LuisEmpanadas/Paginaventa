@@ -6,7 +6,7 @@ const STRIPE_PUBLISHABLE_KEY =
 // En localhost apunta al server.js de Express
 const IS_LOCALHOST = ["localhost", "127.0.0.1"].includes(location.hostname);
 const PAYMENT_URL = IS_LOCALHOST
-  ? "http://localhost:4242/create-payment-intent"
+  ? "http://localhost:8888/create-payment-intent"
   : "/.netlify/functions/create-payment-intent";
 
 // ── Catálogo de productos ────────────────────────────────────────

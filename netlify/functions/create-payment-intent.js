@@ -3,9 +3,26 @@ import Stripe from "stripe";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export const handler = async (event) => {
+  // Configurar CORS
+  const headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+  };
+
+  // Manejar preflight OPTIONS
+  if (event.httpMethod === "OPTIONS") {
+    return {
+      statusCode: 200,
+      headers,
+      body: "",
+    };
+  }
+
   if (event.httpMethod !== "POST") {
     return {
       statusCode: 405,
+      headers,
       body: JSON.stringify({ error: "Method not allowed" }),
     };
   }
@@ -16,6 +33,7 @@ export const handler = async (event) => {
     if (!amount || amount < 50) {
       return {
         statusCode: 400,
+        headers,
         body: JSON.stringify({ error: "Invalid amount" }),
       };
     }
@@ -33,15 +51,16 @@ export const handler = async (event) => {
 
     return {
       statusCode: 200,
-      headers: { "Content-Type": "application/json" },
+      headers,
       body: JSON.stringify({
         clientSecret: paymentIntent.client_secret,
       }),
     };
   } catch (err) {
-    console.error(err);
+    console.error("Stripe error:", err);
     return {
       statusCode: 500,
+      headers,
       body: JSON.stringify({ error: err.message }),
     };
   }
