@@ -216,7 +216,6 @@ btnPay.addEventListener("click", async () => {
     const name =
       document.getElementById("pay-name").value.trim() || "Cliente SURCO";
 
-    // Llamada al backend
     const res = await fetch(PAYMENT_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -229,7 +228,6 @@ btnPay.addEventListener("click", async () => {
 
     if (data.error) throw new Error(data.error);
 
-    // Confirmar pago con Stripe
     const { error: confirmError } = await stripe.confirmCardPayment(
       data.clientSecret,
       {

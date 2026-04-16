@@ -8,12 +8,4 @@
   to = "/store.html"
   status = 200
 
-[[redirects]]
-  from = "/create-checkout-session"
-  to = "/.netlify/functions/server"
-  status = 200
 
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Content-Security-Policy = "script-src 'self' https://js.stripe.com https://m.stripe.network 'unsafe-inline';"
