@@ -1,0 +1,2 @@
+/*
+  Content-Security-Policy: script-src 'self' https://js.stripe.com https://m.stripe.network 'unsafe-inline'; frame-src https://js.stripe.com https://hooks.stripe.com;
