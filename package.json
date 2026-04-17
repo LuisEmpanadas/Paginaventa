@@ -4,7 +4,7 @@
   "description": "Tienda de vinilos con Stripe",
   "type": "module",
   "scripts": {
-    "build": "echo 'No build required for this static + functions project'",
+    "build": "mkdir -p dist && cp store.html store.js store.css dist/ && cp -r api dist/",
     "dev": "netlify dev"
   },
   "dependencies": {
