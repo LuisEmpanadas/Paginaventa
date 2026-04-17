@@ -15,5 +15,6 @@
   },
   "devDependencies": {
     "netlify-cli": "^17.0.0"
+    "vercel": "^latest"
   }
 }
